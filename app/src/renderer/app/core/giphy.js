@@ -8,7 +8,12 @@ export default {
         params: {
           q: query,
           offset: this.page(page),
-          api_key: 'dc6zaTOxFJmzC'
+          api_key: 'dc6zaTOxFJmzC',
+          onDownloadProgress (progressEvent) {
+            console.log('kkk');
+            let percentCompleted = Math.floor((progressEvent.loaded * 100) / progressEvent.total);
+            console.log(percentCompleted);
+          }
         }
       })
       .then(response => resolve(response))
