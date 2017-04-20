@@ -1,12 +1,12 @@
 import Vue from 'vue';
 import Electron from 'vue-electron';
 import Router from 'vue-router';
-import Axios from 'axios';
+import Giphy from 'core/giphy';
 
 import App from './App';
 import routes from 'core/routes';
 
-window.Axios = Axios;
+window.Giphy = Giphy;
 
 Vue.use(Electron);
 Vue.use(Router);

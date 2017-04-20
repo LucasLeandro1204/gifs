@@ -8,8 +8,15 @@
   export default {
     data() {
       return {
-
+        
       };
+    },
+
+    methods: {
+
+      search () {
+
+      }
     }
   }
 </script>
