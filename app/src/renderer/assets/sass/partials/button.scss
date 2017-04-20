@@ -1,0 +1,22 @@
+.btn-icon {
+  font: normal normal normal 14px/1 FontAwesome;
+  text-decoration: none;
+
+   &.open {
+    &::before {
+      content: "\f0c9";
+    }
+  }
+
+  &.close {
+    &::before {
+      content: "\f00d";
+    }
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
+  }
+}

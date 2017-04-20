@@ -99,6 +99,7 @@ let rendererConfig = {
       'renderer': path.join(__dirname, 'app/src/renderer'),
       'assets': path.join(__dirname, 'app/src/renderer/assets'),
       'core': path.join(__dirname, 'app/src/renderer/app/core'),
+      'directives': path.join(__dirname, 'app/src/renderer/app/directives'),
       'components': path.join(__dirname, 'app/src/renderer/app/components')
     },
     extensions: ['.js', '.vue', '.json', '.css', '.node'],
