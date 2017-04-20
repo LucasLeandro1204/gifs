@@ -1,3 +1,5 @@
+import 'assets/sass/app.scss';
+
 import Vue from 'vue';
 import Electron from 'vue-electron';
 import Router from 'vue-router';

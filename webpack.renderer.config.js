@@ -20,10 +20,10 @@ let rendererConfig = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.(scss|css)(\?.*)?$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: 'css-loader'
+          use: 'css-loader!sass-loader'
         })
       },
       {
@@ -62,7 +62,7 @@ let rendererConfig = {
           loader: 'url-loader',
           query: {
             limit: 10000,
-            name: 'imgs/[name].[ext]'
+            name: 'assets/imgs/[name].[ext]'
           }
         }
       },
@@ -96,9 +96,10 @@ let rendererConfig = {
   },
   resolve: {
     alias: {
-      'components': path.join(__dirname, 'app/src/renderer/app/components'),
+      'renderer': path.join(__dirname, 'app/src/renderer'),
+      'assets': path.join(__dirname, 'app/src/renderer/assets'),
       'core': path.join(__dirname, 'app/src/renderer/app/core'),
-      'renderer': path.join(__dirname, 'app/src/renderer')
+      'components': path.join(__dirname, 'app/src/renderer/app/components')
     },
     extensions: ['.js', '.vue', '.json', '.css', '.node'],
     modules: [
