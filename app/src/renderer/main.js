@@ -4,7 +4,7 @@ import Router from 'vue-router';
 import Axios from 'axios';
 
 import App from './App';
-import routes from './routes';
+import routes from 'core/routes';
 
 window.Axios = Axios;
 
