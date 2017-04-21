@@ -4,7 +4,7 @@
     <section>
       <div :class="{ 'active': gifs[i].active }" @click="toggle(i)" v-for="(gif, i) in gifs">
         <img :src="gif.downsized.url" height="auto" width="100%">
-        <a href="#" class="share" @click.prevent="copy(gif.original.url)" v-if="gif.active">
+        <a href="#" class="share" @click.prevent="copy(gif.downsized_medium.url)" v-if="gif.active">
           <i class="fa fa-share-alt" aria-hidden="true"></i>
         </a>
       </div>
