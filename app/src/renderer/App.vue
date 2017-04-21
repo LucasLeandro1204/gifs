@@ -21,6 +21,6 @@
 
 <style lang="scss" scoped>
   body {
-    background-color: #2c3e50;
+    background-color: #1f1f1f;
   }
 </style>

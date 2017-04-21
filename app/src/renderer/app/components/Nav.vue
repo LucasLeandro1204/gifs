@@ -19,6 +19,9 @@
         <router-link to="/git" tag="li">
           <a><i class="fa fa-github" aria-hidden="true"></i>Github</a>
         </router-link>
+        <router-link to="/git" tag="li">
+          <a><i class="fa fa-close" aria-hidden="true"></i>Sair</a>
+        </router-link>
       </ul>
     </div>
   </nav>
@@ -33,7 +36,6 @@
     },
 
     mounted () {
-      Giphy.search('boobs').then(data => console.log(data));
       Bus.listen('nav-active', ({el = '', target = '', force = false}) => {
         if (force || this.active == true && el != target && !target.className.match(/(open)/g) && !el.contains(target)) {
           this.active = false;
@@ -48,6 +50,7 @@
     display: flex;
     flex-direction: column;
     position: fixed;
+    top: 0;
     z-index: 99;
     width: 280px;
     height: 100%;
@@ -122,7 +125,6 @@
   .btn-icon {
     position: absolute;
     z-index: 2;
-    top: .9rem;
     transition: .2s;
     font-size: 1.2rem;    
     border: .1rem solid rgba(#ffffff, .2);
@@ -137,11 +139,13 @@
 
   .open {
     padding: .2rem .3rem;
-    left: .9rem;
+    left: 1rem;
+    top: 2rem;
   }
 
   .close {
     padding: .1rem .3rem;
-    right: .9rem;
+    right: 1rem;
+    top: 1rem;
   }
 </style>
