@@ -127,18 +127,20 @@
     z-index: 2;
     transition: .2s;
     font-size: 1.2rem;    
-    border: .1rem solid rgba(#ffffff, .2);
+    border: .1rem solid rgba(#ffffff, .5);
+    background-color: rgba(#000, .5);
     border-radius: .2rem;
     color: #ffffff;
 
     &:hover,
     &:focus {
-      background: rgba(#ffffff, .1);
+      background-color: rgba(#000, .3);
     }
   }
 
   .open {
     position: fixed;
+    z-index: 30;
     padding: .2rem .3rem;
     left: 1rem;
     top: 2rem;

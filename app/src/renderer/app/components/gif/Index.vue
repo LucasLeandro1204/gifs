@@ -2,8 +2,11 @@
   <article>
     <input type="text" placeholder="Search for gifs..." @keyup.enter="search" v-model="input">
     <section>
-      <div :class="{ 'active': gifs[i].active }" v-for="(gif, i) in gifs" @click="toggle(i)">
+      <div :class="{ 'active': gifs[i].active }" @click="toggle(i)" v-for="(gif, i) in gifs">
         <img :src="gif.downsized.url" height="auto" width="100%">
+        <a href="#" class="share" @click.prevent="copy(gif.original.url)" v-if="gif.active">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </a>
       </div>
     </section>
   </article>
@@ -42,11 +45,16 @@
         this.gifs.map((gif, index) => {
           if (index == i) {
             this.gifs[i].active = ! gif.active;
+
             return;
           }
 
           this.gifs[index].active = false;
         });
+      },
+
+      copy (text) {
+        this.$electron.clipboard.writeText(text);
       },
 
       reset (flag) {
@@ -80,15 +88,28 @@
 
   img {
     float: left;
-  }
-
-  div {
-    width: 100%;
+    cursor: pointer;
   }
 
   .active {
     position: fixed;
+    width: 100%;
     top: 0;
+    z-index: 2;
     left: 0;
+  }
+
+  .share {
+    position: fixed;
+    z-index: 3;
+    right: 1rem;
+    top: 2rem;
+    text-decoration: none;
+    padding: .3rem .4rem;
+    font-size: 1.2rem;    
+    color: #ffffff;
+    border: .1rem solid rgba(#ffffff, .5);
+    background: rgba(#000, .5);
+    border-radius: .2rem;
   }
 </style>
