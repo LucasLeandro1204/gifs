@@ -138,6 +138,7 @@
   }
 
   .open {
+    position: fixed;
     padding: .2rem .3rem;
     left: 1rem;
     top: 2rem;
