@@ -4,11 +4,10 @@
     <section>
       <div :class="{ 'active': gifs[i].active }" @click="toggle(i)" v-for="(gif, i) in gifs">
         <img :src="gif.downsized.url" height="auto" width="100%">
-        <a href="#" class="share" @click.prevent="copy(gif.downsized_medium.url)" v-if="gif.active">
-          <i class="fa fa-share-alt" aria-hidden="true"></i>
-        </a>
+        <a href="#" class="btn-icon share" @click.prevent="copy(gif.downsized_medium.url)" v-if="gif.active"></a>
       </div>
     </section>
+    <a href="#" class="load" @click.prevent="load()">Load more</a>
   </article>
 </template>
 
@@ -27,10 +26,10 @@
     },
 
     methods: {
-      search (page = 0, reset = true) {
+      search (offset = 0, reset = true) {
         this.reset(reset);
 
-        Giphy.search(this.input, page).then(({data}) => {
+        Giphy.search(this.input, offset).then(({data}) => {
           this.gifs = data.data.map((item) => {
             item.images.active = false;
 
@@ -42,7 +41,9 @@
       },
 
       load () {
-
+        let mag = this.gifs.length / 25;
+        let offset = mag / 25; // will be changeable
+        this.search(offset, false);
       },
 
       toggle (i, flag = true) {
@@ -55,7 +56,7 @@
         this.$electron.clipboard.writeText(text);
       },
 
-      reset (flag) {
+      reset (flag = true) {
         if (flag) {
           this.gifs = [];
           this.pagination = [];
@@ -75,6 +76,10 @@
     height: 1.8rem;
     color: #d8d8d8;
     padding: 0 1rem;
+  }
+
+  article {
+    padding-bottom: 1rem;
   }
 
   section {
@@ -104,10 +109,20 @@
     top: 2rem;
     text-decoration: none;
     padding: .3rem .4rem;
-    font-size: 1rem;    
+    font-size: .97rem;    
     color: #ffffff;
     border: .1rem solid rgba(#ffffff, .5);
     background: rgba(#000, .5);
     border-radius: .2rem;
+  }
+
+  .load {
+    color: #fff;
+    padding: .5rem 1rem;
+    margin: 1rem 0;
+    display: inline-block;
+    border: 1px solid #fff;
+    border-radius: 0.3rem;
+    text-decoration: none;
   }
 </style>
