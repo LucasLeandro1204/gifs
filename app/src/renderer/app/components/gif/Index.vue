@@ -30,10 +30,9 @@
         this.reset(reset);
 
         Giphy.search(this.input, offset).then(({data}) => {
-          this.gifs = data.data.map((item) => {
+          data.data.forEach((item) => {
             item.images.active = false;
-
-            return item.images;
+            this.gifs.push(item.images);
           });
 
           this.pagination = data.pagination;
