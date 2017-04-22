@@ -7,7 +7,7 @@
         <a href="#" class="btn-icon share" @click.prevent="copy(gif.downsized_medium.url)" v-if="gif.active"></a>
       </div>
     </section>
-    <a href="#" class="load" @click.prevent="load()">Load more</a>
+    <a href="#" class="load" @click.prevent="load()" v-if="gifs.length">Load more</a>
   </article>
 </template>
 
@@ -42,7 +42,7 @@
 
       load () {
         let mag = this.gifs.length / 25;
-        let offset = mag / 25; // will be changeable
+        let offset = 25 * mag; // will be changeable
         this.search(offset, false);
       },
 
