@@ -16,10 +16,14 @@
   export default {
     data () {
       return {
-        input: '',
+        input: 'car',
         pagination: {},
         gifs: []
       }
+    },
+
+    mounted () {
+      this.search();
     },
 
     methods: {
