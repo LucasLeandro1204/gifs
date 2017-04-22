@@ -14,6 +14,12 @@
     }
   }
 
+  &.share {
+    &::before {
+      content: "\f1e0";
+    }
+  }
+
   &:hover,
   &:focus,
   &:active {
