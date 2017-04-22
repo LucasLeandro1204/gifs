@@ -41,15 +41,9 @@
 
       },
 
-      toggle (i) {
-        this.gifs.map((gif, index) => {
-          if (index == i) {
-            this.gifs[i].active = ! gif.active;
-
-            return;
-          }
-
-          this.gifs[index].active = false;
+      toggle (i, flag = true) {
+        this.gifs.forEach((gif, index) => {
+          this.gifs[index].active = (i == index) ? flag : false;
         });
       },
 
@@ -106,7 +100,7 @@
     top: 2rem;
     text-decoration: none;
     padding: .3rem .4rem;
-    font-size: 1.2rem;    
+    font-size: 1rem;    
     color: #ffffff;
     border: .1rem solid rgba(#ffffff, .5);
     background: rgba(#000, .5);
