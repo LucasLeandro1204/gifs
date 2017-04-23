@@ -10,7 +10,7 @@
         </div>
       </div>
     </section>
-    <a href="#" class="load" @click.prevent="load()" v-if="gifs.length">Load more</a>
+    <a href="#" class="load" @click.prevent="load()" v-if="gifs.length && remaining">Load more</a>
   </article>
 </template>
 
@@ -26,6 +26,12 @@
 
     mounted () {
       this.search();
+    },
+
+    computed: {
+      remaining () {
+        return this.pagination.total_count > this.gifs.length;
+      }
     },
 
     methods: {
