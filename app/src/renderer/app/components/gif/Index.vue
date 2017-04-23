@@ -2,8 +2,8 @@
   <article>
     <input type="text" placeholder="Search for gifs..." @keyup.enter="search" v-model="input">
     <section>
-      <div :class="{ 'active': gifs[i].active }" @click="toggle(i)" v-for="(gif, i) in gifs">
-        <img :src="gif.downsized.url" height="auto" width="100%">
+      <div class="item" :class="{ 'active': gifs[i].active }" @click="toggle(i)" v-for="(gif, i) in gifs">
+        <img :src="gif.downsized.url" width="100%">
         <div class="btn-group" v-if="gif.active">
           <a href="#" class="btn-icon share" @click.stop="copy(gif.downsized_medium.url)"></a>
           <a href="#" class="btn-icon close" @click.stop="toggle(i, false)"></a>
@@ -92,13 +92,17 @@
 
   section {
     width: 100%;
-    padding-top: 1rem;
-    column-count: 3;
-    column-gap: 0;
+    display: inline-block;
+    padding-top: 2.8rem;
+  }
+
+  .item {
+    float: left;
+    width: 33.33%;
   }
 
   img {
-    float: left;
+    width: 100%;
     cursor: pointer;
   }
 
