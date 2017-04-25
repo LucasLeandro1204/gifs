@@ -19,9 +19,6 @@
         <router-link to="/git" tag="li">
           <a><i class="fa fa-github" aria-hidden="true"></i>Github</a>
         </router-link>
-        <router-link to="/git" tag="li">
-          <a><i class="fa fa-close" aria-hidden="true"></i>Sair</a>
-        </router-link>
       </ul>
     </div>
   </nav>
