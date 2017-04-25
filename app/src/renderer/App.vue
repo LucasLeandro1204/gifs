@@ -1,7 +1,6 @@
 <template>
   <body>
-    <div class="toolbar">
-    </div>
+    <header></header>
     <navigation></navigation>
     <router-view></router-view>
   </body>
@@ -20,7 +19,7 @@
     background-color: #1f1f1f;
   }
 
-  .toolbar {
+  header {
     width: 100vw;
     position: fixed;
     height: 1rem;
