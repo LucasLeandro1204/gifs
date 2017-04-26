@@ -1,7 +1,7 @@
 <template>
   <body>
     <header>
-      <a href="#" class="btn-icon close" @click.prevent="$electron.remote.getCurrentWindow().setSize(450, 600)"></a>
+      <a href="#" class="btn-icon close" @click.prevent="$electron.remote.getCurrentWindow().setSize(450, 600)"></a> <!-- remove -->
     </header>
     <navigation></navigation>
     <router-view></router-view>
