@@ -2,7 +2,7 @@
   <article>
     <input type="text" placeholder="Search for gifs..." @keyup.enter="search" v-model="input">
     <section>
-      <img :src="gif.downsized.url" style="width: 33.33%" @click="toggle({index: i})" v-for="(gif, i) in gifs">
+      <img :src="gif.downsized.url" @click="toggle({index: i})" v-for="(gif, i) in gifs">
     </section>
     <div class="display" v-if="active.flag">
       <img :src="active.gif.downsized.url" style="width: 100%">
@@ -97,16 +97,16 @@
     width: 100vw;
     display: inline-block;
     padding-top: 2.8rem;
+
+    img {
+      width: 33.33%;
+      cursor: pointer;
+    }
   }
 
   .item {
     float: left;
     width: 33.33%;
-  }
-
-  img {
-    width: 100%;
-    cursor: pointer;
   }
 
   .display {
@@ -115,10 +115,6 @@
     top: 0;
     z-index: 2;
     left: 0;
-
-    img {
-      cursor: inherit;
-    }
   }
 
   .btn-group {
