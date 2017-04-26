@@ -5,8 +5,8 @@
       <div class="item" :class="{ 'active': gifs[i].active }" @click="toggle(i)" v-for="(gif, i) in gifs">
         <img :src="gif.downsized.url" width="100%">
         <div class="btn-group" v-if="gif.active">
-          <a href="#" class="btn-icon share" @click.stop="copy(gif.downsized_medium.url)"></a>
           <a href="#" class="btn-icon close" @click.stop="toggle(i, false)"></a>
+          <a href="#" class="btn-icon share" @click.stop="copy(gif.downsized_medium.url)"></a>
         </div>
       </div>
     </section>
@@ -91,7 +91,7 @@
   }
 
   section {
-    width: 100%;
+    width: 100vw;
     display: inline-block;
     padding-top: 2.8rem;
   }
@@ -112,6 +112,10 @@
     top: 0;
     z-index: 2;
     left: 0;
+
+    img {
+      cursor: inherit;
+    }
   }
 
   .btn-group {
@@ -122,9 +126,12 @@
 
   .close,
   .share {
+    display: block;
+    float: right;
     z-index: 3;
     text-decoration: none;
     padding: .3rem .4rem;
+    margin-left: .3rem;
     font-size: .97rem;    
     color: #ffffff;
     border: .1rem solid rgba(#ffffff, .5);
