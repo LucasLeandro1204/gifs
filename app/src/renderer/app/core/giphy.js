@@ -8,6 +8,7 @@ export default {
         params: {
           q: query,
           offset: offset,
+          limit: 30,
           api_key: 'dc6zaTOxFJmzC'
         }
       })

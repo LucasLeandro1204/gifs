@@ -1,7 +1,7 @@
 <template>
   <body>
     <header>
-      <a href="#" class="btn-icon close"></a>
+      <a href="#" class="btn-icon close" @click.prevent="$electron.remote.getCurrentWindow().setSize(450, 600)"></a>
     </header>
     <navigation></navigation>
     <router-view></router-view>
@@ -27,7 +27,7 @@
     background-color: #1f1f1f +- 5%;
     -webkit-app-region: drag;
 
-    .close {
+    .btn-icon {
       -webkit-app-region: no-drag;
       color: #fff;
       float: right;

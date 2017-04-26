@@ -53,8 +53,8 @@
       },
 
       load () {
-        let mag = this.gifs.length / 25;
-        let offset = 25 * mag; // will be changeable (maybe not)
+        let mag = this.gifs.length / 30;
+        let offset = 30 * mag; // will be changeable (maybe not)
         this.search(offset, false);
       },
 
@@ -101,6 +101,7 @@
     img {
       width: 33.33%;
       cursor: pointer;
+      vertical-align: top;
     }
   }
 
