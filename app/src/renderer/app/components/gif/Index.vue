@@ -65,10 +65,13 @@
       },
 
       calcMargin () {
-        for (row in Math.ceil(this.gifs.length / 3)) {
-          for (i in this.gifs.slice((row - 1) * 3, row * 3)) {
+        let lastRow = [];
+        for (let row = 1; row <= Math.ceil(this.gifs.length / 3); row++) {
+          lastRow = this.gifs.slice(((row) * 3) - 3, row * 3 - 1);
+          
+          for (let i in lastRow) {
 
-          }
+          } 
         }
       },
 
