@@ -2,9 +2,7 @@
   <article>
     <input type="text" placeholder="Search for gifs..." @keyup.enter="search" v-model="input">
     <section>
-      <div class="row" v-for="row in Math.ceil(gifs.length / 3)">
-        <img :src="gif.downsized.url" @click.stop="toggle({index: ((row - 1) * 3 + i) })" v-for="(gif, i) in gifs.slice((row - 1) * 3, row * 3)">
-      </div>
+      <img :src="gif.downsized.url" :style="{ 'margin-top': gif.marginTop }" @click.stop="toggle(i)" v-for="(gif, i) in gifs">
     </section>
     <div class="display" v-if="active.flag">
       <img :src="active.gif.downsized.url" style="width: 100%">
@@ -47,9 +45,11 @@
 
         Giphy.search(this.input, offset).then(({data}) => {
           data.data.forEach(({images: image}) => {
+            image.marginTop = '';
             this.gifs.push(image);
           });
           this.pagination = data.pagination;
+          this.calcMargin();
         });
       },
 
@@ -62,6 +62,14 @@
       toggle ({index, flag = true}) {
         this.active.flag = flag;
         this.active.gif = this.gifs[index];
+      },
+
+      calcMargin () {
+        for (row in Math.ceil(this.gifs.length / 3)) {
+          for (i in this.gifs.slice((row - 1) * 3, row * 3)) {
+
+          }
+        }
       },
 
       copy (text) {

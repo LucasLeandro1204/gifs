@@ -1,5 +1,4 @@
 export default {
-  twoWay: true,
   bind(element, binding) {
     Bus.listen('ready', () => {
       document.body.addEventListener('click', (event) => {
